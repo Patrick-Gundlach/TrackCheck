@@ -26,6 +26,14 @@ On startup the server calls the URL in the environment variable `UPDATE_URL`. Th
 
 Further details about the audit can be found in `docs/audit-details.md`.
 
+### Audit modules
+
+The following modules are prepared for future checks:
+
+- `gtmAnalysis`: will inspect the Google Tag Manager setup and return a list of issues.
+- `consentCheck`: will verify consent mode settings and report detected platforms.
+- `cookieCheck`: will list cookies before and after consent with category and source.
+
 ## Metadata
 
 Ersteller: Patrick Gundlach – person to person Media (<https://patrickgundlach.de> / <https://ptp-media.com>)

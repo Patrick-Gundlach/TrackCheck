@@ -2,6 +2,14 @@
 
 This document outlines the information that each audit should provide in the platform.
 
+### Module overview
+
+TrackCheck groups the checks into simple modules:
+
+- **gtmAnalysis** returns details about the Tag Manager container.
+- **consentCheck** reports the consent setup and detected platform.
+- **cookieCheck** lists cookies with category and lifetime.
+
 ## Project Overview
 - List all projects with current status and last audit date.
 - Display audit history with version number, author and timestamp.
