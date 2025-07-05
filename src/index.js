@@ -10,8 +10,17 @@ app.get('/version', (req, res) => {
   res.json({ version: currentVersion });
 });
 
-app.listen(port, () => {
-  console.log(`TrackCheck running on port ${port}`);
-  console.log(`Current version: ${currentVersion}`);
-  checkForUpdate(updateUrl, currentVersion);
-});
+function startServer() {
+  app.listen(port, () => {
+    console.log(`TrackCheck running on port ${port}`);
+    console.log(`Current version: ${currentVersion}`);
+    checkForUpdate(updateUrl, currentVersion);
+  });
+}
+
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = { app, startServer };
+

@@ -10,6 +10,7 @@ Current version: **00.00.01**
 2. Run `npm install` to install dependencies.
 3. Copy `.env.example` to `.env` if custom settings are needed.
 4. Start the server with `npm start`.
+5. Run the test suite with `npm test`.
 
 The server listens on port `3000` by default. Visit `/version` to see the active version.
 
@@ -21,6 +22,8 @@ On startup the server calls the URL in the environment variable `UPDATE_URL`. Th
 
 - **express**: Minimal web framework for routing and middleware. <https://expressjs.com/>
 - **node-fetch**: HTTP client for the update check. <https://github.com/node-fetch/node-fetch>
+- **jest**: Test runner to ensure code quality. <https://jestjs.io/>
+- **supertest**: HTTP assertions for Express apps. <https://github.com/ladjs/supertest>
 
 ## Documentation
 
