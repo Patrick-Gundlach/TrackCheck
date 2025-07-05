@@ -13,12 +13,16 @@ app.get('/version', (req, res) => {
   res.json({ version: currentVersion });
 });
 
+function runAudits() {
+  gtmAnalysis();
+  consentCheck();
+  cookieCheck();
+}
+
 app.listen(port, () => {
   console.log(`TrackCheck running on port ${port}`);
   console.log(`Current version: ${currentVersion}`);
   checkForUpdate(updateUrl, currentVersion);
   // Future audits will be called here
-  gtmAnalysis();
-  consentCheck();
-  cookieCheck();
+  runAudits();
 });

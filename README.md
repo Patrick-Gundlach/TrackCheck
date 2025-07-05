@@ -7,9 +7,8 @@ Current version: **00.00.01**
 ## Installation
 
 1. Clone the repository.
-2. Run `npm install` to install dependencies.
-3. Copy `.env.example` to `.env` if custom settings are needed.
-4. Start the server with `npm start`.
+2. Run `npm run setup` to install dependencies and create a `.env` file.
+3. Start the server with `npm start`.
 
 The server listens on port `3000` by default. Visit `/version` to see the active version.
 
