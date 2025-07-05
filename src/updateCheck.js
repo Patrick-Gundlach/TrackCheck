@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const fs = require('fs').promises;
 
 async function checkForUpdate(url, currentVersion) {
   if (!url) {
@@ -6,12 +7,19 @@ async function checkForUpdate(url, currentVersion) {
     return;
   }
   try {
-    const res = await fetch(url);
-    if (!res.ok) {
-      console.log('Update check failed');
-      return;
+    let data;
+    if (url.startsWith('file://')) {
+      const filePath = url.slice('file://'.length);
+      const content = await fs.readFile(filePath, 'utf8');
+      data = JSON.parse(content);
+    } else {
+      const res = await fetch(url);
+      if (!res.ok) {
+        console.log('Update check failed');
+        return;
+      }
+      data = await res.json();
     }
-    const data = await res.json();
     if (data.version && data.version !== currentVersion) {
       console.log(`Update available: ${data.version}`);
     } else {
