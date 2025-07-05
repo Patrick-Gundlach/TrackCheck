@@ -7,9 +7,8 @@ Current version: **00.00.01**
 ## Installation
 
 1. Clone the repository.
-2. Run `npm install` to install dependencies.
-3. Copy `.env.example` to `.env` if custom settings are needed.
-4. Start the server with `npm start`.
+2. Run `npm run setup` to install dependencies. The script also copies `.env.example` to `.env` if needed.
+3. Start the server with `npm start`.
 
 The server listens on port `3000` by default. Visit `/version` to see the active version.
 
@@ -26,7 +25,18 @@ On startup the server calls the URL in the environment variable `UPDATE_URL`. Th
 
 Further details about the audit can be found in `docs/audit-details.md`.
 
+### Audit modules
+
+The following modules are prepared for future checks:
+
+- `gtmAnalysis`: will inspect the Google Tag Manager setup and return a list of issues.
+- `consentCheck`: will verify consent mode settings and report detected platforms.
+- `cookieCheck`: will list cookies before and after consent with category and source.
+
 ## Metadata
 
 Ersteller: Patrick Gundlach – person to person Media (<https://patrickgundlach.de> / <https://ptp-media.com>)
 
+
+### Troubleshooting
+If you see merge conflict markers like <<<<<<< or >>>>>>>, open the listed files and keep the desired lines before committing the result.
