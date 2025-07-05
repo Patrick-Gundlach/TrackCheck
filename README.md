@@ -1,2 +1,32 @@
 # TrackCheck
-Dies soll eine Platform werden mit der ich ein teil vom Tracking audit erstellen kann. In ersterlinie geht es darum zu prüfen ob das Tracking Den geforderten Consent mode v2 unterstützt oder v3. Sollte der Consent unter v2 liegen bedarf es eine genaue Analyse. Zusätzlich möchte ich das hier geprüft wird welches Consent Tool verbaut wurde.
+
+TrackCheck is a basic platform for tracking audits. The first goal is to verify whether a site implements the required Google Consent Mode and which consent tool is in use.
+
+Current version: **00.00.01**
+
+## Installation
+
+1. Clone the repository.
+2. Run `npm install` to install dependencies.
+3. Copy `.env.example` to `.env` if custom settings are needed.
+4. Start the server with `npm start`.
+
+The server listens on port `3000` by default. Visit `/version` to see the active version.
+
+## Update check
+
+On startup the server calls the URL in the environment variable `UPDATE_URL`. The endpoint must return JSON in the form `{ "version": "00.00.00" }`. If the version differs from the running version a message is printed to the console.
+
+## Used packages
+
+- **express**: Minimal web framework for routing and middleware. <https://expressjs.com/>
+- **node-fetch**: HTTP client for the update check. <https://github.com/node-fetch/node-fetch>
+
+## Documentation
+
+Further details about the audit can be found in `docs/audit-details.md`.
+
+## Metadata
+
+Ersteller: Patrick Gundlach – person to person Media (<https://patrickgundlach.de> / <https://ptp-media.com>)
+
