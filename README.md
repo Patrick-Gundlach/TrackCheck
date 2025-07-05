@@ -19,15 +19,15 @@ The server listens on port `3000` by default. Visit `/version` to see the active
 TrackCheck reads two environment variables on startup.
 
 - **PORT**: Port number for the HTTP server. Example: `PORT=3000`.
-- **UPDATE_URL**: Endpoint providing the latest version in the form `{ "version": "00.00.00" }`. Example: `UPDATE_URL=https://example.com/latest.json`.
+- **UPDATE_URL**: Location of the latest version information. Use a URL like `file://./config/latest.json` to load a local file or provide an HTTP endpoint returning `{ "version": "00.00.00" }`.
 
 ## Update check
 
-When the server starts it requests the URL stored in `UPDATE_URL`. The endpoint should return JSON like `{ "version": "00.00.00" }`. If the value differs from the running version TrackCheck prints a notice so you know an update is available.
+When the server starts it loads the resource referenced by `UPDATE_URL`. The file or endpoint should provide JSON like `{ "version": "00.00.00" }`. If the value differs from the running version TrackCheck prints a notice so you know an update is available.
 
 ### Setting up an update server
 
-Provide a small service that responds with the latest version. Any HTTP server works as long as it returns the JSON structure above. Update the `version` field whenever you release a new build and point `UPDATE_URL` to this endpoint.
+Provide a small service that responds with the latest version. Any HTTP server works as long as it returns the JSON structure above. Alternatively you can update `config/latest.json` and set `UPDATE_URL` to `file://./config/latest.json` to keep the information local. Update the `version` field whenever you release a new build.
 
 ## Used packages
 
