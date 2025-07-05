@@ -37,3 +37,6 @@ The following modules are prepared for future checks:
 
 Ersteller: Patrick Gundlach – person to person Media (<https://patrickgundlach.de> / <https://ptp-media.com>)
 
+
+### Troubleshooting
+If you see merge conflict markers like <<<<<<< or >>>>>>>, open the listed files and keep the desired lines before committing the result.
